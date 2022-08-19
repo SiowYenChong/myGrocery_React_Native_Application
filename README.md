@@ -10,7 +10,7 @@ Fong Yip Kean &  <br>
 Chan Zhi Wei  <br>
 
 <b>Tech Stack used: </b><br>
-React Native 
+React Native  <br>
 Javascript <br>
 Python  <br>
 Flask  <br>
