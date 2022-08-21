@@ -66,7 +66,7 @@ export default class Cart extends React.Component {
 				{text: 'Delete', onPress: () => {
 					let updatedCart = this.state.cartItems; /* Clone it first */
 					updatedCart.map((item, index) => {
-					updatedCart.splice(index, 1); /* Remove item from the cloned cart state */
+					updatedCart.splice(index, 30); /* Remove item from the cloned cart state */
 				});
 					this.setState({updatedCart, deleteAll: (value == true ? false : true)}); /* Update the state */
 				
