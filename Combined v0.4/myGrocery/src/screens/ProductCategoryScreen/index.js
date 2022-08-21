@@ -141,7 +141,7 @@ export default class App extends Component<Props> {
                       height: 35,
                       width: 105,
                       marginBottom: 25,
-                      backgroundColor: COLORS.blue,
+                      backgroundColor: '#24ce85',
                       borderRadius: 10,
                       justifyContent: 'center',
                       alignItems: 'center',

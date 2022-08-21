@@ -72,7 +72,7 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
-    VALUES('Merry Ice Cream-Gula Melaka Ice Cream (50ml)',' A familiar sweet and fragrance taste. A much loved flavour from all ages. Rich and fragrant, silky smooth with a soothing creamy texture','Chilled and Frozen','Ice Cream',29.90,'https://www.merryme.co/image/cache/products/gula-melaka-other-2-1500x1875.jpg')
+    VALUES('Merry Ice Cream-Gula Melaka Ice Cream',' A familiar sweet and fragrance taste. A much loved flavour from all ages. Rich and fragrant, silky smooth with a soothing creamy texture','Chilled and Frozen','Ice Cream',29.90,'https://www.merryme.co/image/cache/products/gula-melaka-other-2-1500x1875.jpg')
 ''')
 
 cursor.execute('''
@@ -107,7 +107,7 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
-    VALUES('Maggie Kari Instant Noodles 2 minute noodles Pack 5 x 79g','Delicious instant noodle','Food and Beverage','Instant Food',5.10,'https://malaysiamari.com/wp-content/uploads/2021/02/maggikari.jpg')
+    VALUES('Maggie Kari Instant Noodles','Delicious instant noodle','Food and Beverage','Instant Food',5.10,'https://malaysiamari.com/wp-content/uploads/2021/02/maggikari.jpg')
 ''')
 
 cursor.execute('''
