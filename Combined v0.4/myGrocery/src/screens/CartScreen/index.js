@@ -6,6 +6,19 @@ import COLORS from './consts/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const widthscreen = Dimensions.get('screen').width;
+let config = require('./Config');
+Date.prototype.formatted = function() {
+	let day = this.getDay();
+	let date = this.getDate();
+	let month = this.getMonth();
+	let year = this.getFullYear();
+	let daysText = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+	let monthsText = [
+	'Jan','Feb','Mar','Apr','May','Jun',
+	'Jul','Aug','Sep','Oct','Nov','Dec'
+	];
+	return `${daysText[day]}, ${monthsText[month]} ${date}, ${year}`;
+   } 
 
 export default class Cart extends React.Component {
 	
@@ -17,7 +30,10 @@ export default class Cart extends React.Component {
 			deleteAll: false,
 			cartItemsIsLoading: false,
 			cartItems:global.cart,
+			date: new Date (Date.now ()),
 		}		
+		this.check_subtotal=this.check_subtotal.bind(this)
+		this._save=this._save.bind(this)
 	}
 
 	forceUpdateHandler = () => {
@@ -98,6 +114,58 @@ export default class Cart extends React.Component {
 		return 0;
 	}
 
+	check_subtotal(){
+		if (this.subtotalPrice().toFixed(2) > 0){
+			this._save()
+		}else{
+			Alert.alert("Please select item to checkout.");
+		}
+	}
+
+	_save() {
+		console.log("The id is "+global.userid)
+		let url = config.settings.serverPath + '/api/orders_insert';
+	
+		fetch(url, {
+		  method: 'POST',
+		  headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+			user_id:global.userid,
+			total_price: this.subtotalPrice().toFixed(2),
+			paid_status:'Paid',
+			order_status: 'Shipping',
+			date:this.state.date,
+		  }),
+		})
+		  .then(response => {
+			console.log(response);
+			if (!response.ok) {
+			  Alert.alert('Error:', response.status.toString());
+			  throw Error('Error ' + response.status);
+			}
+	
+			return response.json();
+		  })
+		  .then(respondJson => {
+			if (respondJson.affected > 0) {
+			  Alert.alert(
+				"Checkout",
+				"Checkout Successfully!",
+				[
+				  {
+					text: "Okay", onPress: () =>
+					  this.props.navigation.navigate('HomeScreen')
+				  }
+				]
+			  );
+			} else {
+			  Alert.alert('Error in saving');
+			}
+		  })
+	  }
 	  
 	render() {
 
@@ -249,8 +317,8 @@ export default class Cart extends React.Component {
 							
 
 							<CheckButton center={widthscreen/100}
-								label={"Checkout to Payment"}
-								onPress={() => this.props.navigation.navigate('Payment', {price: this.subtotalPrice().toFixed(2)})}
+								label={"Checkout"}
+								onPress={() => {this.check_subtotal();}}
 								bcolor="#24CE85"
 								tcolor={COLORS.white}
 								icolor={COLORS.white}

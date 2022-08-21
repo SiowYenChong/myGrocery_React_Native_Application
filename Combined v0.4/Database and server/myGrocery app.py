@@ -36,6 +36,7 @@ def get_orders_row(row):
         'total_price':row[2],
         'paid_status':row[3],
         'order_satus':row[4],
+        'date':row[5],
     }
     return row_dict
 
@@ -233,7 +234,7 @@ def all_orders():
         return jsonify(rows_as_dict), 200
 
 # insert an orders method
-@app.route('/api/orders_insert/<int:id>', methods=['POST'])
+@app.route('/api/orders_insert', methods=['POST'])
 def insert_order():
     conn = db_con()
     cursor = conn.cursor()
@@ -242,25 +243,15 @@ def insert_order():
         if not request.json:
             abort(400)
 
-        if 'id' not in request.json:
-            abort(400)
-
-        if int(request.json['id']) != id:
-            abort(400)
-
-        cursor.execute('SELECT * FROM orders WHERE id=? AND order_status=?', (id,'Awaiting checkout',))
-        row = cursor.fetchone()
-        if row:
-            pass
-        else:
-            new_orders = (
-                request.json['user_id'],
-                request.json['total_price'],
-                request.json['paid_status'],
-                request.json['order_status'],
-            )
-            cursor.execute('''INSERT INTO orders(user_id,total_price,paid_status,order_status) VALUES(?,?,?,?)''',
-                           new_orders)
+        new_orders = (
+            request.json['user_id'],
+            request.json['total_price'],
+            request.json['paid_status'],
+            request.json['order_status'],
+            request.json['date'],
+        )
+        cursor.execute('''INSERT INTO orders(user_id,total_price,paid_status,order_status,date) VALUES(?,?,?,?,?)''',
+                       new_orders)
 
         orders_id = cursor.lastrowid
         conn.commit()
