@@ -67,13 +67,47 @@ cursor.execute('''
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
     VALUES('EB Tempura Chicken Nugget (380g)','Made with chicken breast meat and coated with delightful crispy tempura batter. Perfectly shaped for a satisfying bite, 
-    sink your teeth into this wonderful treat at any time!','Chilled & Frozen','Meats',8.75,'https://www.kosmo.com.my/wp-content/uploads/2021/12/tempura-naget-lain.jpg')
+    sink your teeth into this wonderful treat at any time!','Chilled and Frozen','Meats',8.75,'https://www.kosmo.com.my/wp-content/uploads/2021/12/tempura-naget-lain.jpg')
 ''')
 
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
-    VALUES('New York Bakery Plain Bagels 5 Pack','Authenthic New York style Plain bagels that are deliciously soft & chewy. The bagel is low in fat, free from artificial colours 
-    and flavours, & suitable for vegans and vegetarians. The plain bagel is versatile as you can have it with any ingredient you desire','Bakery','Bread',15.00,'https://digitalcontent.api.tesco.com/v2/media/ghs/e3b1b7e9-b071-430b-9986-4a73055a9a1d/f178e739-9295-42d1-8153-dd7c2a744dfb_1636313131.jpeg?h=540&w=540')
+    VALUES('Merry Ice Cream-Gula Melaka Ice Cream (50ml)',' A familiar sweet and fragrance taste. A much loved flavour from all ages. Rich and fragrant, silky smooth with a soothing creamy texture','Chilled and Frozen','Ice Cream',29.90,'https://www.merryme.co/image/cache/products/gula-melaka-other-2-1500x1875.jpg')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('KG PASTRY Black Sesame Mini Tang Yuan (300g)','Comprising a delightful chewy outer covering that gives way to a filling of aromatic paste, this delicacy will make any time a festival time!','Chilled and Frozen','Desserts',8.80,'https://cdn.shopify.com/s/files/1/0429/3761/4503/products/023481-1-1.jpg?v=1635039578')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('New York Bakery Plain Bagels 5 Pack','Authenthic New York style Plain bagels that are deliciously soft & chewy. The bagel is low in fat, free from artificial colours and flavours, & suitable for vegans and vegetarians. The plain bagel is versatile as you can have it with any ingredient you desire','Bakery','Bread',15.00,'https://digitalcontent.api.tesco.com/v2/media/ghs/e3b1b7e9-b071-430b-9986-4a73055a9a1d/f178e739-9295-42d1-8153-dd7c2a744dfb_1636313131.jpeg?h=540&w=540')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Plain Croissant 2 Piece','Buttery layers between the croissant''s creating the soft yet crunchy texture. A great breakfast treat! Complement the croissants with butter or jam for an even better experience!','Bakery','Bread',3.00,'https://cdn.shopify.com/s/files/1/0265/7845/2503/products/PlainCriossant_1024x.png?v=1617522152')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('MASSIMO White Sandwich Loaf 400g','There’s nothing more satisfying than a good loaf of white bread. Perfect for breakfast and just about any time of the day, the Massimo Sandwich Loaf goes perfectly with your favourite spreads. Soft, fluffy and delicious, you won’t stop at just one slice!','Bakery','Loaf Bread',2.80,'https://scstore.com.my/wp-content/uploads/2020/05/massimo-white-sandwich-loaf-1.jpg')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Coca-Cola 330ml','Cold refreshing drink!!!','Food and Beverage','Bottled Beverage',2.20,'https://texassmokehousecy.com/wp-content/uploads/2021/07/Coca-Cola-330ml.jpg')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Milo Active Go 3 In 1 (18 x 33g)','Milo Package','Food and Beverage','Chocolate Drinks',14.99,'https://cf.shopee.com.my/file/7698bc98f8c251d6b1604736f4d8988d')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Maggie Kari Instant Noodles 2 minute noodles Pack 5 x 79g','Delicious instant noodle','Food and Beverage','Instant Food',5.10,'https://malaysiamari.com/wp-content/uploads/2021/02/maggikari.jpg')
 ''')
 
 cursor.execute('''
@@ -81,6 +115,36 @@ cursor.execute('''
     VALUES('Unagi Yellow','The taste of the unagi is light,somehow like the taste of squid meat,only a with pinch of sweetness.Of course,if you already enjoy unagi,then you are 
     well aware of the subtle sweet flavour that''s slightly chewy,somewhat reminiscent of raw salmon.','Fresh Product','Seafood',19.50,
     'https://cdn.shopify.com/s/files/1/0273/3424/6486/products/UnagiYellow80p_1946x.jpg?v=1647580267')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Bitter Ground','Bitter melon — also known as bitter gourd or Momordica charantia — is a tropical vine that belongs to the gourd family and is closely related to zucchini, squash, pumpkin, and cucumber. It''s cultivated worldwide for its edible fruit, a staple in many types of Asian cuisine.','Fresh Product','Fresh Vegetable',4.50,
+    'https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2019/11/24/1e9530b0-0ea3-11ea-afcd-7b308be3ba45_image_hires_191958.jpg?itok=WqflTL-R&v=1574594405')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Atlantic Premium Salmon Steak','The Atlantic Premium Salmon Steak is rich in Omega 3 Fatty Acids and vitamin E is also great source of proteins.You can pan fry, bake, or grill salmon steaks. We love pan-frying them in a skillet because they take only 10 minutes to cook.','Fresh Product','Sea Food',8.00,
+    'https://img.freepik.com/free-photo/raw-salmon-steak-plate-with-spices-atlantic-fish-top-view_89816-4999.jpg')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('CUTIE 2-Ply Compact Toilet Roll Tissue','100% brand new 2-layer tissue rolls. Thicker, stronger, and more value. Ideal bathroom, toilet, changing room and etc. Easy and convenient to use. Good quality product • Value for money. Specification: Package Includes: 10 x CUTIE 3-Ply Compact Toilet Roll Tissue','Household','Cleaning Supplies',14.90,
+    'https://cf.shopee.com.my/file/e0326ef23b2f2d6130d440f21366f7c2')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Garbage Bag','Plastic trash, garbage bags, trash bag, garbage storage, trash can, trash. There are four sizes, which small size is in blue and other three larger sizes are in black. 71cm x 89cm (F1). 55cm x 82cm (F1). 48cm x 52cm (F1). 74cm x 90cm (F1).Features : Eco-friendly. Suitable for kitchen use. Available in four sizes, 74cm x 90cm (10pcs), 71cm x 89cm (20pcs), 55cm x 82cm (20pcs), 48cm x 52cm (30pcs). Durable and easy to use. Value for money. Good quality product.','Household','Cleaning Supplies',3.20,
+    'https://cf.shopee.com.my/file/7fb4e5affd13f157f423c13e5dde15e7')
+''')
+
+cursor.execute('''
+    INSERT INTO product(product_name,description,category,type,price,pic_url)
+    VALUES('Clorox Original Bleach','Clorox total cleans + disinfects, Kills 99.9% of household germs, Kills 99.9% of the Cold and Flu Viruses.','Household','Cleaning Supplies',5.00,
+    'https://www.pantryexpress.my/469-thickbox_default/clorox-bleach-1l-original.jpg')
 ''')
 
 cursor.execute('''
