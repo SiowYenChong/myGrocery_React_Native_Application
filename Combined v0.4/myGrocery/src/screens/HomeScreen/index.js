@@ -85,147 +85,84 @@ const Home = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.items}>
-     
+      <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
         <View>
        
           <Image
             style={{ width: 130, height: 130, marginLeft: 30, marginTop: 20 }}
             source={require('../../assets/item_one.png')}
           />
-          <Dropdown
-            style={{
-              borderColor: '#6A95D2',
-              borderRadius: 100,
-              borderWidth: 1.2,
-              width: 150,
-              height: 70,
-              paddingHorizontal: 20,
-              backgroundColor: 'white',
-              marginTop: 10,
-              marginLeft: 20,
-            }}
-            data={['Breads', 'Cakes', 'Pastries', 'Desserts'].map(item => {
-              return { label: item, value: item };
-            })}
-            maxHeight={400}
-            labelField="label"
-            valueField="value"
-            placeholder={'Bakery'}
-            searchPlaceholder="Search..."
-            value={first}
-            onChange={item => {
-              setFirst(item.value);
-            }}
-          />
+          <Text
+          style={{
+            fontStyle: 'italic',
+            marginLeft: 30,
+            marginTop: 10,
+            color: 'black',
+          }}>
+          Bakery
+        </Text>
         </View>
+        </TouchableOpacity>
         <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
         <View>
           <Image
             style={{ width: 130, height: 130, marginLeft: 60, marginTop: 20 }}
             source={require('../../assets/item_two.png')}
           />
-          <Dropdown
-            style={{
-              borderColor: '#6A95D2',
-              borderRadius: 100,
-              borderWidth: 1.2,
-              width: 150,
-              height: 70,
-              paddingHorizontal: 20,
-              backgroundColor: 'white',
-              marginTop: 10,
-              marginLeft: 50,
-            }}
-            data={['Desserts', 'Ice Cream', 'Meats', 'Pizza'].map(item => {
-              return { label: item, value: item };
-            })}
-            maxHeight={400}
-            labelField="label"
-            valueField="value"
-            placeholder={'Chilled'}
-            searchPlaceholder="Search..."
-            value={second}
-            onChange={item => {
-              setSecond(item.value);
-            }}
-          />
+          <Text
+          style={{
+            fontStyle: 'italic',
+            marginLeft: 60,
+            marginTop: 10,
+            color: 'black',
+          }}>
+          Chilled
+        </Text>
         </View>
         </TouchableOpacity>
       </View>
       <View style={styles.items}>
+      <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
         <View>
           <Image
             style={{ width: 130, height: 130, marginLeft: 30, marginTop: 20 }}
             source={require('../../assets/e.jpeg')}
           />
-          <Dropdown
-            style={{
-              borderColor: '#6A95D2',
-              borderRadius: 100,
-              borderWidth: 1.2,
-              width: 150,
-              height: 70,
-              paddingHorizontal: 20,
-              backgroundColor: 'white',
-              marginTop: 10,
-              marginHorizontal: 20,
-            }}
-            data={['Fresh Fruits', 'Fresh Vegetables', 'Meat', 'Seafood'].map(
-              item => {
-                return { label: item, value: item };
-              },
-            )}
-            maxHeight={400}
-            labelField="label"
-            valueField="value"
-            placeholder={'Fresh'}
-            searchPlaceholder="Search..."
-            value={third}
-            onChange={item => {
-              setThird(item.value);
-            }}
-          />
+          <Text
+          style={{
+            fontStyle: 'italic',
+            marginLeft: 30,
+            marginTop: 10,
+            color: 'black',
+          }}>
+          Fresh
+        </Text>
 
         </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
         <View>
           <Image
-            style={{ width: 150, height: 130, marginLeft: 20, marginTop: 20 }}
+            style={{ width: 150, height: 130, marginLeft: 60, marginTop: 20 }}
             source={require('../../assets/s.jpeg')}
           />
-          <Dropdown
-            style={{
-              borderColor: '#6A95D2',
-              borderRadius: 100,
-              borderWidth: 1.2,
-              width: 150,
-              height: 70,
-              paddingHorizontal: 20,
-              backgroundColor: 'white',
-              marginTop: 10,
-              marginHorizontal: 20,
-            }}
-            data={[
-              'Cleaning Supplies',
-              'Storage & Organisation',
-              'Beauty and personal care',
-            ].map(item => {
-              return { label: item, value: item };
-            })}
-            maxHeight={400}
-            labelField="label"
-            valueField="value"
-            placeholder={'HouseHold'}
-            searchPlaceholder="Search..."
-            value={fourth}
-            onChange={item => {
-              setFourth(item.value);
-            }}
-          />
+          <Text
+          style={{
+            fontStyle: 'italic',
+            marginLeft: 60,
+            marginTop: 10,
+            color: 'black',
+          }}>
+          Household
+        </Text>
 
         </View>
+        </TouchableOpacity>
 
       </View>
 
+      <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
       <View>
         <Image
           style={{ width: 130, height: 130, marginLeft: 30, marginTop: 20 }}
@@ -233,37 +170,15 @@ const Home = ({ navigation }) => {
         />
 
         <View>
-          <Dropdown
-            style={{
-              borderColor: '#6A95D2',
-              borderRadius: 100,
-              borderWidth: 1.2,
-              width: 200,
-              height: 70,
-              paddingHorizontal: 20,
-              backgroundColor: 'white',
-              marginTop: 10,
-              marginLeft: 10
-            }}
-            data={[
-              'Bottled Beverages, Water, Drink Mixes',
-              'Coffee',
-              'Hot Chocolate & Malted Drinks',
-              'Canned, Jarred & Instant Foods',
-              'Snacks & Sweets',
-            ].map(item => {
-              return { label: item, value: item };
-            })}
-            maxHeight={400}
-            labelField="label"
-            valueField="value"
-            placeholder={'Food & Beverages'}
-            searchPlaceholder="Search..."
-            value={fifth}
-            onChange={item => {
-              setFifth(item.value);
-            }}
-          />
+        <Text
+          style={{
+            fontStyle: 'italic',
+            marginLeft: 30,
+            marginTop: 10,
+            color: 'black',
+          }}>
+          Food N Beverages
+        </Text>
         </View>
         <View style={{ opacity: 0 }}>
           <Image
@@ -299,6 +214,7 @@ const Home = ({ navigation }) => {
           />
         </View>
       </View>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </ScrollView>
   );
