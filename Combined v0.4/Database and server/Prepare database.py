@@ -31,7 +31,8 @@ db.execute('''CREATE TABLE orders(
     user_id integer NOT NULL,
     total_price REAL NOT NULL,
     paid_status text NOT NULL,
-    order_status TEXT NOT NULL
+    order_status TEXT NOT NULL,
+    date integer NOT NULL
 )''')
 
 db.execute('''CREATE TABLE order_item(
@@ -148,23 +149,23 @@ cursor.execute('''
 ''')
 
 cursor.execute('''
-    INSERT INTO orders(user_id,total_price,paid_status,order_status)
-    VALUES('1','23.75','Unpay','Awaiting payment')
+    INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
+    VALUES('1','23.75','Paid','Awaiting payment','1508688000000')
 ''')
 
 cursor.execute('''
-    INSERT INTO orders(user_id,total_price,paid_status,order_status)
-    VALUES('2','27.25','Paid','Shipping')
+    INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
+    VALUES('2','27.25','Paid','Shipping','1495468800000')
 ''')
 
 cursor.execute('''
-    INSERT INTO orders(user_id,total_price,paid_status,order_status)
-    VALUES('3','34.50','Paid','Shipped')
+    INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
+    VALUES('3','34.50','Paid','Shipped','1385481600000')
 ''')
 
 cursor.execute('''
-    INSERT INTO orders(user_id,total_price,paid_status,order_status)
-    VALUES('4','43.25','Unpay','Awaiting checkout')
+    INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
+    VALUES('4','43.25','Paid','Awaiting checkout','1460908800000')
 ''')
 
 cursor.execute('''
