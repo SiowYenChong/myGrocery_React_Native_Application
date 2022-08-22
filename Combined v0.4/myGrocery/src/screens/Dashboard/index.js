@@ -36,7 +36,7 @@ const Dashboard = ({ navigation }) => {
 
             paddingTop: 30,
             fontWeight: 'bold',
-            color: 'black',
+            color: '#24ce85',
             textAlign: 'center'
           }}>
         {global.fullname}
