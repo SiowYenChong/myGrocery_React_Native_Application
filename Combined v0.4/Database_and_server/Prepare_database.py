@@ -73,7 +73,7 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
-    VALUES('Merry Ice Cream-Gula Melaka Ice Cream',' A familiar sweet and fragrance taste. A much loved flavour from all ages. Rich and fragrant, silky smooth with a soothing creamy texture','Chilled and Frozen','Ice Cream',29.90,'https://www.merryme.co/image/cache/products/gula-melaka-other-2-1500x1875.jpg')
+    VALUES('Merry Ice Cream-Gula Melaka Ice Cream',' A familiar sweet and fragrance taste. A much loved flavour from all ages. Rich and fragrant, silky smooth with a soothing creamy texture','Chilled and Frozen','Ice Cream',29.90,'https://my-test-11.slatic.net/p/df3c0332f641e65f7677039a75a2ed67.png')
 ''')
 
 cursor.execute('''
@@ -121,13 +121,13 @@ cursor.execute('''
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
     VALUES('Bitter Ground','Bitter melon — also known as bitter gourd or Momordica charantia — is a tropical vine that belongs to the gourd family and is closely related to zucchini, squash, pumpkin, and cucumber. It''s cultivated worldwide for its edible fruit, a staple in many types of Asian cuisine.','Fresh Product','Fresh Vegetable',4.50,
-    'https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2019/11/24/1e9530b0-0ea3-11ea-afcd-7b308be3ba45_image_hires_191958.jpg?itok=WqflTL-R&v=1574594405')
+    'https://www.healthifyme.com/blog/wp-content/uploads/2022/03/Bitter-Gourd-1.jpg')
 ''')
 
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
     VALUES('Atlantic Premium Salmon Steak','The Atlantic Premium Salmon Steak is rich in Omega 3 Fatty Acids and vitamin E is also great source of proteins.You can pan fry, bake, or grill salmon steaks. We love pan-frying them in a skillet because they take only 10 minutes to cook.','Fresh Product','Sea Food',8.00,
-    'https://img.freepik.com/free-photo/raw-salmon-steak-plate-with-spices-atlantic-fish-top-view_89816-4999.jpg')
+    'https://www.fresh2yourdoor.com/wp-content/uploads/2021/10/Fresh-Premium-Grade-Atlantic-Salmon6Oz-6.jpg')
 ''')
 
 cursor.execute('''
@@ -150,12 +150,12 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('1','23.75','Paid','Awaiting payment','1508688000000')
+    VALUES('1','23.75','Paid','Shipped','1508688000000')
 ''')
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('2','27.25','Paid','Shipping','1495468800000')
+    VALUES('2','27.25','Paid','Shipped','1495468800000')
 ''')
 
 cursor.execute('''
@@ -165,7 +165,7 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('4','43.25','Paid','Awaiting checkout','1460908800000')
+    VALUES('4','43.25','Paid','Shipped','1460908800000')
 ''')
 
 cursor.execute('''

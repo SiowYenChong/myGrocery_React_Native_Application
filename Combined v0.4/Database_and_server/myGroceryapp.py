@@ -137,7 +137,7 @@ def single_user(id):
             request.json['mobile_no'],
             request.json['email'],
             request.json['address'],
-            str(id),
+            id,
         )
 
         cursor.execute(''' UPDATE user SET username=?, password=?, fullname=?, mobile_no=?, email=?, address=? WHERE id=?''',
@@ -173,6 +173,49 @@ def single_user(id):
         conn.close()
         return jsonify(response), 201
 
+# update user password
+@app.route('/api/update_user_pass/<int:id>', methods=['GET', 'PUT'])
+def update_user_password(id):
+    conn = db_con()
+    cursor = conn.cursor()
+
+    if request.method == "GET":
+        cursor.execute('SELECT * FROM user WHERE id=?', (id,))
+        row = cursor.fetchone()
+        conn.close()
+
+        if row:
+            row_as_dict = get_user_row(row)
+            return jsonify(row_as_dict), 200
+        else:
+            return jsonify(None), 200
+
+    if request.method == "PUT":
+        if not request.json:
+            abort(400)
+
+        if 'id' not in request.json:
+            abort(400)
+
+        if int(request.json['id']) != id:
+            abort(400)
+
+        update_user_password = (
+            request.json['password'],
+            id,
+        )
+
+        cursor.execute(''' UPDATE user SET password=? WHERE id=?''',
+                       update_user_password)
+        conn.commit()
+
+        response = {
+            'id': id,
+            'affected': conn.total_changes,
+        }
+        conn.close()
+        return jsonify(response), 201
+
 #manipulate product
 
 #for get all & insert method
@@ -187,6 +230,26 @@ def all_product():
         rows = cursor.fetchall()
         conn.close()
         
+        rows_as_dict = []
+        for row in rows:
+            row_as_dict = get_product_row(row)
+            rows_as_dict.append(row_as_dict)
+
+        return jsonify(rows_as_dict), 200
+
+
+# get all same category products
+@app.route('/api/product/<string:category>', methods=['GET'])
+def all_same_category_product(category):
+    conn = db_con()
+    cursor = conn.cursor()
+
+    if request.method == 'GET':
+        cursor.execute("SELECT * from product where category=?",(category,))
+
+        rows = cursor.fetchall()
+        conn.close()
+
         rows_as_dict = []
         for row in rows:
             row_as_dict = get_product_row(row)
@@ -226,6 +289,26 @@ def all_orders():
         rows = cursor.fetchall()
         conn.close()
         
+        rows_as_dict = []
+        for row in rows:
+            row_as_dict = get_orders_row(row)
+            rows_as_dict.append(row_as_dict)
+
+        return jsonify(rows_as_dict), 200
+
+
+# for get a user all orders
+@app.route('/api/orders/<int:id>', methods=['GET'])
+def a_user_all_orders(id):
+    conn = db_con()
+    cursor = conn.cursor()
+
+    if request.method == 'GET':
+        cursor.execute("SELECT * from orders where user_id=?",(id,))
+
+        rows = cursor.fetchall()
+        conn.close()
+
         rows_as_dict = []
         for row in rows:
             row_as_dict = get_orders_row(row)

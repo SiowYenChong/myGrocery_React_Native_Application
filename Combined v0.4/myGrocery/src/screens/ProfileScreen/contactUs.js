@@ -12,7 +12,7 @@ import {
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
-export default class editProfile extends Component {
+export default class ContactUs extends Component {
   render() {
     return (
       <View style={styles.container}>

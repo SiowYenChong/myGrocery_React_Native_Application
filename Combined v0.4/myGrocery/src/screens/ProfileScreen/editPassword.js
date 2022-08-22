@@ -10,46 +10,125 @@ import {
   Alert,
 } from 'react-native';
 
+let config = require('./Config');
 
-export default class editPassword extends Component {
+export default class EditPassword extends Component {
   constructor(props){
     super(props)
 
     this.state = {
-      currentPassword: '',
+      oldPassword:'',
+      currentPassword:'',
       newPassword:'',
       confirmPassword:'',
-      checkPassText: '',
+      checkPassText: 'Please fill up the all the details to update password',
       cond: false
     }
 
     
+    this._update = this._update.bind(this)
+    this.checkPassword = this.checkPassword.bind(this)
+    this.checkSubmit=this.checkSubmit.bind(this)
+    this._loadByID = this._loadByID.bind(this);
 
   }
+  componentDidMount() {
+    this._loadByID();
+  }
 
+  _loadByID() {
+    let url = config.settings.serverPath + '/api/user/' + global.userid;
+    console.log(url);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          Alert.alert('Error:', response.status.toString());
+          throw Error('Error ' + response.status);
+        }
+        return response.json();
+      })
+      .then(user=> {
+        this.setState({
+          oldPassword: user.password,
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
+  _update(){
+  
+    let url = config.settings.serverPath + '/api/update_user_pass/' + global.userid;
+
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: global.userid,
+        password: this.state.newPassword,
+      }),
+    })
+      .then(response => {
+        console.log(response);
+        if (!response.ok) {
+          Alert.alert('Error:', response.status.toString());
+          throw Error('Error ' + response.status);
+        }
+
+        return response.json();
+      })
+      .then(respondJson => {
+        if (respondJson.affected > 0) {
+          Alert.alert('Password updated!')
+          // Alert.alert('Record UPDATED for', this.state.name);
+          this.props.navigation.goBack()
+        } else {
+          Alert.alert('Error in UPDATING');
+        }
+      
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  
+  
+    // this.props.navigation.goBack()
+  }
   
 
 
   checkPassword(){
 
-    this.setState({cond: false})
-
-    if(this.state.newPassword.length >= 8){
+    if(this.state.newPassword.length >= 6){
       if(this.state.newPassword === this.state.confirmPassword){
 
-        this.setState({checkPassText: ''})
-        if(this.state.currentPassword === this.props.route.params.profile.password){
-          this.setState({cond: true})
+       
+        if(this.state.currentPassword === this.state.oldPassword){
+          this.setState({checkPassText: ''})
+       
+        }else{
+          this.setState({checkPassText: 'Current password does not match'})
+          console.log(this.state.oldPassword)
         }
-
       }
         else
        this.setState({checkPassText: 'New and confirm password does not match'})
     }
     else{
-      this.setState({checkPassText: 'Password must be 8 characters long'})
+      this.setState({checkPassText: 'Password must be 6 characters long'})
     }
+  }
+
+  checkSubmit(){
+    if(this.state.checkPassText.length===0){
+      this._update();
+      }else{
+        Alert.alert("Please fill up the all the details correctly to update password");
+      }
   }
  
   
@@ -82,7 +161,7 @@ export default class editPassword extends Component {
           </View>
 
         <TouchableOpacity style={styles.loginBtn}
-        onPress={this._update}
+        onPress={this.checkSubmit}
         >
             <Text style={{fontSize: 15, color: 'white'}}>Save</Text>
           </TouchableOpacity>

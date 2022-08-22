@@ -10,28 +10,30 @@ import {
   Alert,
 } from 'react-native';
 
+let config = require('./Config');
 
-export default class editProfile extends Component {
+export default class EditProfile extends Component {
   constructor(props)
   {
     super(props)
 
     this.state = {
-      // profile: this.props.route.params.profile,
-      // id: this.props.route.params.profile.id,
-      // email: this.props.route.params.profile.email,
-      // userName: this.props.route.params.profile.username,
-      // name: this.props.route.params.profile.fullname,
-      // address: this.props.route.params.profile.address,
-      // mobileNo: this.props.route.params.profile.mobile_no,
+      profile: '',
+      id: '',
+      email: '',
+      userName: '',
+      password:'',
+      name: '',
+      address: '',
+      mobileNo: '',
       userNameAlert: '',
       addressAlert: '',
       mobileNoAlert: ''
     }
     this.submit = this.submit.bind(this)
-   
-
-   
+    this.checkSubmit = this.checkSubmit.bind(this)
+    this._update = this._update.bind(this) 
+    this._load = this._load.bind(this) 
   }
 
 submit(){
@@ -64,8 +66,88 @@ submit(){
       this.setState({mobileNoAlert: ''})
     }
   }
- 
+  componentDidMount(){
+    this._load()
+ }
 
+ _load(){
+    let url = config.settings.serverPath + '/api/user/'+global.userid;
+    this.setState({isFetching: true});
+    fetch(url)
+      .then(response => {
+        console.log(response);
+        if (!response.ok) {
+          Alert.alert('Error:', response.status.toString());
+          throw Error('Error ' + response.status);
+        }
+        this.setState({isFetching: false});
+        return response.json();
+      })
+      .then(user => {
+        this.setState({userName: user.username});
+        this.setState({password: user.password});
+        this.setState({name: user.fullname});
+        this.setState({mobileNo: user.mobile_no});
+        this.setState({email: user.email});
+        this.setState({address: user.address});
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+
+  _update(){
+  
+    let url = config.settings.serverPath + '/api/user/' + global.userid;
+
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: global.userid,
+        username: this.state.userName,
+        password: this.state.password,
+        fullname: this.state.name,
+        mobile_no: this.state.mobileNo,
+        email: this.state.email,
+        address: this.state.address,
+      }),
+    })
+      .then(response => {
+        console.log(response);
+        if (!response.ok) {
+          Alert.alert('Error:', response.status.toString());
+          throw Error('Error ' + response.status);
+        }
+
+        return response.json();
+      })
+      .then(respondJson => {
+        if (respondJson.affected > 0) {
+          Alert.alert('Profile updated!')
+          // Alert.alert('Record UPDATED for', this.state.name);
+        } else {
+          Alert.alert('Error in UPDATING');
+        }
+      
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  
+  
+    // this.props.navigation.goBack()
+  }
+
+  checkSubmit(){
+    if(this.state.userNameAlert.length === 0 && this.state.addressAlert.length === 0 && this.state.mobileNoAlert.length === 0){
+      this._update();
+      }
+  }
   
 
 
@@ -95,7 +177,7 @@ submit(){
               </View>
             <Text></Text>
 
-            <Text style={styles.textStyle}>User Name</Text>
+            <Text style={styles.textStyle}>Username</Text>
             <View style={styles.inputView}>
               <TextInput style={styles.TextInput} value={this.state.userName} onChangeText={(text) => this.setState({userName: text}, this.submit)}/>
             </View>
@@ -103,7 +185,7 @@ submit(){
 
               <Text style={styles.textStyle}>Name</Text>
               <View style={styles.inputView}>
-              <TextInput style={styles.TextInput} value={this.state.name} editable={false}/>
+              <TextInput style={styles.TextInput} value={this.state.name} editable={true}/>
               </View>
               <Text></Text>
 

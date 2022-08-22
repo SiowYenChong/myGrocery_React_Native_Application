@@ -85,7 +85,7 @@ const Home = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.items}>
-      <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
+      <TouchableOpacity  onPress={() => {navigation.navigate('Product_category');global.selected_category='Bakery'}}>
         <View>
        
           <Image
@@ -103,7 +103,7 @@ const Home = ({ navigation }) => {
         </Text>
         </View>
         </TouchableOpacity>
-        <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
+        <TouchableOpacity  onPress={() => {navigation.navigate('Product_category');global.selected_category='Chilled and Frozen'}}>
         <View>
           <Image
             style={{ width: 130, height: 130, marginLeft: 60, marginTop: 20 }}
@@ -116,13 +116,13 @@ const Home = ({ navigation }) => {
             marginTop: 10,
             color: 'black',
           }}>
-          Chilled
+          Chilled and Frozen
         </Text>
         </View>
         </TouchableOpacity>
       </View>
       <View style={styles.items}>
-      <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
+      <TouchableOpacity  onPress={() => {navigation.navigate('Product_category');global.selected_category='Fresh Product'}}>
         <View>
           <Image
             style={{ width: 130, height: 130, marginLeft: 30, marginTop: 20 }}
@@ -135,13 +135,13 @@ const Home = ({ navigation }) => {
             marginTop: 10,
             color: 'black',
           }}>
-          Fresh
+          Fresh Product
         </Text>
 
         </View>
         </TouchableOpacity>
 
-        <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
+        <TouchableOpacity  onPress={() => {navigation.navigate('Product_category');global.selected_category='Household'}}>
         <View>
           <Image
             style={{ width: 150, height: 130, marginLeft: 60, marginTop: 20 }}
@@ -162,7 +162,7 @@ const Home = ({ navigation }) => {
 
       </View>
 
-      <TouchableOpacity  onPress={() => navigation.navigate('Product_category')}>
+      <TouchableOpacity  onPress={() => {navigation.navigate('Product_category');global.selected_category='Food and Beverage'}}>
       <View>
         <Image
           style={{ width: 130, height: 130, marginLeft: 30, marginTop: 20 }}
@@ -177,7 +177,7 @@ const Home = ({ navigation }) => {
             marginTop: 10,
             color: 'black',
           }}>
-          Food N Beverages
+          Food and Beverages
         </Text>
         </View>
         <View style={{ opacity: 0 }}>
