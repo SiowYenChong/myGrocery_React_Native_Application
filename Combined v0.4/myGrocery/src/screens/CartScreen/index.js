@@ -91,6 +91,15 @@ export default class Cart extends React.Component {
 			{ cancelable: false }
 		);
 	}
+
+	check_out_deleteHandlerAll = (index,value) => {		
+					let updatedCart = this.state.cartItems; /* Clone it first */
+					updatedCart.map((item, index) => {
+					updatedCart.splice(index, 30); /* Remove item from the cloned cart state */
+				});
+					this.setState({updatedCart, deleteAll: (value == true ? false : true)}); /* Update the state */
+	}
+
 	
 	quantityHandler = (action, index) => {
 		const newItems = [...this.state.cartItems]; // clone the array 
@@ -118,7 +127,7 @@ export default class Cart extends React.Component {
 		if (this.subtotalPrice().toFixed(2) > 0){
 			this._save()
 		}else{
-			Alert.alert("Please select item to checkout.");
+			Alert.alert("Please select item to checkout and place order.");
 		}
 	}
 
@@ -152,12 +161,12 @@ export default class Cart extends React.Component {
 		  .then(respondJson => {
 			if (respondJson.affected > 0) {
 			  Alert.alert(
-				"Checkout",
-				"Checkout Successfully!",
+				"Checkout and place order",
+				"Checkout and place order successfully!",
 				[
 				  {
 					text: "Okay", onPress: () =>
-					  this.props.navigation.navigate('HomeScreen')
+					  this.props.navigation.navigate('Home')
 				  }
 				]
 			  );
@@ -317,8 +326,8 @@ export default class Cart extends React.Component {
 							
 
 							<CheckButton center={widthscreen/100}
-								label={"Checkout"}
-								onPress={() => {this.check_subtotal();}}
+								label={"Checkout and place order"}
+								onPress={() => {this.check_subtotal();this.check_out_deleteHandlerAll(deleteAll);}}
 								bcolor="#24CE85"
 								tcolor={COLORS.white}
 								icolor={COLORS.white}

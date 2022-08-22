@@ -4,9 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Profile from "./Profile";
-import editProfile from "./editProfile"
-import editPassword from "./editPassword"
-import contactUs from "./contactUs"
+import EditProfile from "./EditProfile"
+import EditPassword from "./EditPassword"
+import ContactUs from "./ContactUs"
 import TermsAndCondition from "./TermsAndCondition"
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -20,9 +20,9 @@ export default class App extends Component{
         return(
       <Stack.Navigator>
       <Stack.Screen name='Profile' component={Profile} options = {styles.ProfileHeader}></Stack.Screen>
-      <Stack.Screen name='editProfile' component={editProfile} options ={styles.editProfileHeader}></Stack.Screen>
-      <Stack.Screen name='editPassword' component={editPassword} options ={styles.editPasswordHeader}></Stack.Screen>
-      <Stack.Screen name='contactUs' component={contactUs} options ={styles.contactUsHeader}></Stack.Screen>
+      <Stack.Screen name='EditProfile' component={EditProfile} options ={styles.editProfileHeader}></Stack.Screen>
+      <Stack.Screen name='EditPassword' component={EditPassword} options ={styles.editPasswordHeader}></Stack.Screen>
+      <Stack.Screen name='ContactUs' component={ContactUs} options ={styles.contactUsHeader}></Stack.Screen>
       <Stack.Screen name='TermsAndCondition' component={TermsAndCondition} options ={styles.TermsnConditionHeader}></Stack.Screen>
      </Stack.Navigator>
    

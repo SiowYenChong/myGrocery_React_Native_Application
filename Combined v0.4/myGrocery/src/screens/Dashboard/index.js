@@ -54,7 +54,7 @@ const Dashboard = ({ navigation }) => {
             alignSelf: 'center',
             textAlign: 'center',
           }}
-        onPress={() => navigation.navigate('OrderHistoryindex')}
+        onPress={() => navigation.navigate('OrderHistory')}
         >
           <Text style={{ color: 'white', fontSize: 20, padding: 10 }}>
             Order History
@@ -73,32 +73,15 @@ const Dashboard = ({ navigation }) => {
             alignSelf: 'center',
             textAlign: 'center',
           }}
-        onPress={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Profiletab')}
         >
           <Text style={{ color: 'white', fontSize: 20, padding: 10 }}>
-            Edit Your Profile
+            Profile
           </Text>
         </TouchableOpacity>
         <Text>{'\n'}</Text>
 
-        <TouchableOpacity
-          style={{
-            width: 300,
-            height: 50,
-            borderRadius: 40,
-            marginTop: 20,
-            backgroundColor: '#24ce85',
-            alignItems: 'center',
-            alignSelf: 'center',
-            textAlign: 'center',
-          }}
-        // onPress={() => navigation.navigate('Profile')}
-        >
-          <Text style={{ color: 'white', fontSize: 20, padding: 10 }}>
-            Edit Your Password
-          </Text>
-        </TouchableOpacity>
-        <Text>{'\n'}</Text>
+      
 
         <TouchableOpacity
           style={{

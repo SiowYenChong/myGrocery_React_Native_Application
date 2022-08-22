@@ -32,7 +32,7 @@ export default class App extends Component<Props> {
     this._load = this._load.bind(this);
   }
   _load() {
-    let url = config.settings.serverPath + '/api/product';
+    let url = config.settings.serverPath + '/api/product/'+global.selected_category;
     this.setState({isFetching: true});
     fetch(url)
       .then(response => {
@@ -132,7 +132,9 @@ export default class App extends Component<Props> {
 
                 {/* Touchable */}
                 <TouchableOpacity style={{flex: 3, zIndex: 999,justifyContent: 'center',
-                    alignItems: 'center'}}>
+                    alignItems: 'center'}}  onPress={() => this.props.navigation.navigate('IndividualProductScreen', {
+            Aitem: item,
+          })}>
                     <View
                     style={{
                       position: 'absolute',

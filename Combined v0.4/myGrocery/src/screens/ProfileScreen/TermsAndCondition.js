@@ -7,7 +7,7 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 // import {Dropdown } from 'react-native-material-dropdown'
 
-export default class editProfile extends Component {
+export default class TermsAndCondition extends Component {
   render() {
     return (
 <ScrollView>

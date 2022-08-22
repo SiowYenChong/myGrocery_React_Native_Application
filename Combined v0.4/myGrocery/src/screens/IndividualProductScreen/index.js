@@ -105,7 +105,7 @@ const Product = ({route,navigation}) => {
         Category : {Aitem.category}
       </TextInput>
 
-      {/* the quantity bar at here - i didn't do styling */}
+      {/* the quantity bar at here */}
       {
               <NumericInput 
               value={quan} 

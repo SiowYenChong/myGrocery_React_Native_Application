@@ -126,7 +126,7 @@ export default class SignUp extends Component {
               "Sign Up Successfully!",
               [
                 {
-                  text: "Log In", onPress: () =>
+                  text: "Log In", onPress:() =>
                     this.props.navigation.navigate('Login')
                 }
               ]

@@ -3,7 +3,7 @@ import Dashboard from '../src/screens/Dashboard';
 import Search from '../src/screens/SearchScreen';
 import Home from '../src/screens/HomeScreen';
 import About from '../src/screens/AboutScreen';
-import OrderHistoryindex from '../src/screens/OrderHistoryScreen';
+import OrderHistory from '../src/screens/OrderHistoryScreen';
 import Product_category from '../src/screens/ProductCategoryScreen';
 import IndividualProductScreen from '../src/screens/IndividualProductScreen';
 import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
@@ -47,7 +47,7 @@ const CatalogueScreens = () => {
       <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="Search" component={Search} />
-      <Stack.Screen name="OrderHistoryindex" component={OrderHistoryindex} />
+      <Stack.Screen name="OrderHistory" component={OrderHistory} />
       <Stack.Screen name="Product_category" component={Product_category} />
       <Stack.Screen name="IndividualProductScreen" component={IndividualProductScreen} />
     </Stack.Navigator>
@@ -67,8 +67,8 @@ const BottomTabs = () => {
       <Tab.Screen
         // name="Catalogue"
         // component={CatalogueScreens}
-        name="Home"
-        component={CatalogueScreens}
+        name="Hometab"
+        component={ CatalogueScreens }
         options={({ route }) => ({
           // tabBarStyle: getTabBarStyle(route),
           title: '',
@@ -115,7 +115,7 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Profiletab"
         component={Profile}
         options={{
           title: '',

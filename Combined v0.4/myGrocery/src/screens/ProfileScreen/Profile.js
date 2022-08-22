@@ -8,16 +8,11 @@ export default class Profile extends Component {
   constructor(props){
     super(props)
     
-    this.state = {
-      profile:[],
-    };
+  
 
     
 }
 
-componentDidMount(){
- 
- }
 
   render() {
     return (
@@ -63,20 +58,22 @@ componentDidMount(){
           </View>
           <View style={styles.container2}>
           <TouchableOpacity style={styles.Btn} onPress={() => {
-                this.props.navigation.navigate('editProfile', {profile: this.state.profile[1], refresh: this._query});
+                this.props.navigation.navigate('EditProfile');
               }}>
             <Text style={styles.BtnText}>Edit My Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.Btn}>
+          <TouchableOpacity style={styles.Btn} onPress={() => {
+                this.props.navigation.navigate('OrderHistory')
+              }}>
             <Text style={styles.BtnText}>Order History</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.Btn} onPress={() => {
-                this.props.navigation.navigate('editPassword', {profile: this.state.profile[1], refresh: this._query});
+                this.props.navigation.navigate('EditPassword')
               }}>
             <Text style={styles.BtnText}>Edit Password</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.Btn} onPress={() => {
-                this.props.navigation.navigate('contactUs');
+                this.props.navigation.navigate('ContactUs');
               }}>
             <Text style={styles.BtnText}>Contact Us</Text>
           </TouchableOpacity>

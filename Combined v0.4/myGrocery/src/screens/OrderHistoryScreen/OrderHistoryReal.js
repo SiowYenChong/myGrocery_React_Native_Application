@@ -20,6 +20,19 @@ const img1 = require('./assets/ProductImg/product1.jpg');
 import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
+Date.prototype.formatted = function() {
+	let day = this.getDay();
+	let date = this.getDate();
+	let month = this.getMonth();
+	let year = this.getFullYear();
+	let daysText = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+	let monthsText = [
+	'Jan','Feb','Mar','Apr','May','Jun',
+	'Jul','Aug','Sep','Oct','Nov','Dec'
+	];
+	return `${daysText[day]}, ${monthsText[month]} ${date}, ${year}`;
+   }
+
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
@@ -33,7 +46,7 @@ export default class App extends Component<Props> {
   }
 
   _load() {
-    let url = config.settings.serverPath + '/api/orders';
+    let url = config.settings.serverPath + '/api/orders/'+ global.userid;
     this.setState({isFetching: true});
     fetch(url)
       .then(response => {
@@ -106,8 +119,11 @@ export default class App extends Component<Props> {
         <TouchableOpacity> 
       <View style={style.itemContainer}>
       <View style={style.orderItem}>
+      <Text style={style.text}>
+        Order id: {item.id} 
+        </Text>
         <Text style={style.text}>
-        {item.total_price} 
+        Total price: {item.total_price} 
         </Text>
         <Text  style={style.text}>{item.paid_status}</Text>
     
