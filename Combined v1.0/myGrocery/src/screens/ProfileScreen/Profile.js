@@ -1,18 +1,55 @@
 import React, {Component} from 'react';
-import {Button, Text, View, StyleSheet, ScrollView, Image, Dimensions,} from 'react-native';
+import {Button, Text, View, StyleSheet, ScrollView, Image, Dimensions,Alert,} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
+let config = require('./Config');
 
 export default class Profile extends Component {
 
   constructor(props){
-    super(props)
-    
-  
-
-    
+    super(props);
+    this._delete= this._delete.bind(this)
 }
 
+_delete() {
+  Alert.alert('Are you confirm to DELETE your account?','',[
+    {
+      text: 'No',
+      onPress: () => {},
+    },
+    {
+      text: 'Yes',
+      onPress: () => {
+        let url =
+          config.settings.serverPath + '/api/user/' + global.userid;
+        fetch(url, {
+          method: 'DELETE',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({id: global.userid}),
+        })
+          .then(response => {
+            if (!response.ok) {
+              Alert.alert('Error:', response.status.toString());
+              throw Error('Error ' + response.status);
+            }
+            return response.json();
+          })
+          .then(responseJson => {
+            if (responseJson.affected == 0) {
+              Alert.alert('Error in DELETING');
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          });
+        this.props.navigation.navigate('Welcome');
+      },
+    },
+  ]);
+}
 
   render() {
     return (
@@ -62,11 +99,11 @@ export default class Profile extends Component {
               }}>
             <Text style={styles.BtnText}>Edit My Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.Btn} onPress={() => {
+          {/* <TouchableOpacity style={styles.Btn} onPress={() => {
                 this.props.navigation.navigate('OrderHistory')
               }}>
             <Text style={styles.BtnText}>Order History</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity style={styles.Btn} onPress={() => {
                 this.props.navigation.navigate('EditPassword')
               }}>
@@ -77,6 +114,13 @@ export default class Profile extends Component {
               }}>
             <Text style={styles.BtnText}>Contact Us</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.Btn} onPress={() => {
+               this._delete()}
+              }>
+            <Text style={styles.BtnText}>Delete account</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity style={styles.Btn} onPress={() => {
                 this.props.navigation.navigate('Welcome');
               }}>

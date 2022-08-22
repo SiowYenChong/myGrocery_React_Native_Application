@@ -22,8 +22,6 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-// global.cart= []
-// global.cartQuan=[]
 
 const DrawerNavigator = () => {
   return (
@@ -65,12 +63,9 @@ const BottomTabs = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
-        // name="Catalogue"
-        // component={CatalogueScreens}
         name="Hometab"
         component={ CatalogueScreens }
         options={({ route }) => ({
-          // tabBarStyle: getTabBarStyle(route),
           title: '',
           tabBarIcon: ({ size, focused, color }) => {
             return (

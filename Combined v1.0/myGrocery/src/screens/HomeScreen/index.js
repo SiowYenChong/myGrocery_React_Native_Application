@@ -1,12 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { Dimensions, Pressable, ScrollView, TextInput } from 'react-native';
+import { ScrollView, TextInput } from 'react-native';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { Button, Searchbar, ToggleButton } from 'react-native-paper';
-import ModalDropdown from 'native-drop-down';
 import { StatusBar } from 'expo-status-bar';
-import { Icon } from 'react-native-vector-icons/Icon';
-import { Dropdown } from 'react-native-element-dropdown';
 
 const Home = ({ navigation }) => {
   const [value, setValue] = React.useState('left');
@@ -185,29 +181,7 @@ const Home = ({ navigation }) => {
             style={{ width: 130, height: 130, marginLeft: 30, marginTop: 20 }}
             source={require('../../assets/ff.png')}
           />
-          <ModalDropdown
-            style={{ width: 130, marginLeft: 30, marginTop: 20 }}
-            textStyle={{
-              fontSize: 15,
-              fontWeight: 'bold',
-              color: '#3498DB',
-            }}
-            dropdownStyle={{ width: 130, height: 130 }}
-            dropdownTextStyle={{
-              fontSize: 15,
-              fontWeight: 'bold',
-              color: 'black',
-            }}
-            defaultValue={'Food & Beverages'}
-            showsVerticalScrollIndicator={true}
-            options={[
-              'Bottled Beverages, Water, Drink Mixes',
-              'Coffee',
-              'Hot Chocolate & Malted Drinks',
-              'Canned, Jarred & Instant Foods',
-              'Snacks & Sweets',
-            ]}
-          />
+        
           <Image
             style={{ width: 20, height: 10, marginTop: -15, marginLeft: 140 }}
             source={require('../../assets/l.png')}

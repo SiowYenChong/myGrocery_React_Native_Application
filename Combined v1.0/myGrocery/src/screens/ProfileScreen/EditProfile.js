@@ -146,6 +146,8 @@ submit(){
   checkSubmit(){
     if(this.state.userNameAlert.length === 0 && this.state.addressAlert.length === 0 && this.state.mobileNoAlert.length === 0){
       this._update();
+      }else{
+        Alert.alert('Please fill up all information correctly.')
       }
   }
   

@@ -39,7 +39,7 @@ const Dashboard = ({ navigation }) => {
             color: '#24ce85',
             textAlign: 'center'
           }}>
-        {global.fullname}
+        Welcome {global.fullname}
         </Text>
         <Text>{'\n'}</Text>
 
