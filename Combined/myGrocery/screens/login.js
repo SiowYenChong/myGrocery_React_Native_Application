@@ -99,20 +99,6 @@ componentDidMount() {
             }}
           />
         </View>
-        {/* <View marginBottom={100} marginLeft={10} width={170}>
-          <TouchableHighlight
-            onPress={() => { this.forgetPassword() }}
-            underlayColor='white'
-          >
-            <View>
-              <Text style={styles.Forgot}>
-                Forget your password?
-              </Text>
-            </View>
-          </TouchableHighlight>
-        </View> */}
-
-
 
         <View alignItems='center'>
           <TouchableHighlight

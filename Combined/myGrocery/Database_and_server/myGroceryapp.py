@@ -161,7 +161,7 @@ def single_user(id):
         if int(request.json['id']) != id:
             abort(400)
 
-        cursor.execute('DELETE FROM user WHERE id=?', (str(id),))
+        cursor.execute('DELETE FROM user WHERE id=?', (id,))
 
         conn.commit()
 
