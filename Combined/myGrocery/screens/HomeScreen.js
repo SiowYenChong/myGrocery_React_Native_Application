@@ -79,7 +79,7 @@ const BottomTabs = () => {
                   width: 130,
                 }}>
                 <Text style={{ color: focused ? 'white' : '#24CE85' }}>
-                  Catalogue
+                  Home
                 </Text>
               </View>
             );
