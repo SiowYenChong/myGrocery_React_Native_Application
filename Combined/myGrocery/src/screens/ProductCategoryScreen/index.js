@@ -72,15 +72,17 @@ export default class App extends Component<Props> {
           alignItems: 'center',
           alignSelf: 'center',
         }}>
+
         <Text
           style={{
-            fontSize: 35,
+            fontSize: 30,
             backgroundColor: '#24ce85',
             paddingTop: 50,
             fontWeight: 'bold',
             color: 'black'
           }}>
-      Product Category
+            
+      {global.selected_category}
         </Text>
         <Text
           style={{

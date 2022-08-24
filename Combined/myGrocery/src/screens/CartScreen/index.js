@@ -303,7 +303,7 @@ export default class Cart extends React.Component {
 					</ScrollView>
 				)}
 				
-				 				{!cartItemsIsLoading &&
+				{!cartItemsIsLoading &&
 					<View style={{backgroundColor: '#fff', borderTopWidth: 2, borderColor: '#f6f6f6', paddingVertical: 15}}>
 					
 						<View style={{flexDirection: 'row'}}>

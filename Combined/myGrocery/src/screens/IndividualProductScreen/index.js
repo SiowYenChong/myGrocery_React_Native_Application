@@ -24,8 +24,7 @@ const Product = ({route,navigation}) => {
    Aitem['qty'] = quan;
     if(global.cart.length==0){
            
-      global.cart.push(Aitem);
-      
+      global.cart.push(Aitem);  
     }
       
     else{//alr have item
@@ -54,21 +53,22 @@ const Product = ({route,navigation}) => {
         }}>
         <Text
           style={{
-            fontSize: 35,
+            fontSize: 20,
             backgroundColor: '#24ce85',
+            marginLeft: 30,
             paddingTop: 50,
             fontWeight: 'bold',
             color: 'black'
           }}>
-      Product Category
+          {Aitem.product_name}
         </Text>
         <Text
           style={{
             fontSize: 15,
             backgroundColor: '#24ce85',
-            paddingTop: 0,
+            paddingTop: 40,
             fontWeight: 'bold',
-            marginLeft: -330,
+            marginLeft: -340,
             marginTop: -30,
             color: 'black'
           }}
@@ -107,7 +107,7 @@ const Product = ({route,navigation}) => {
 
       {/* the quantity bar at here */}
       {
-              <NumericInput 
+              <NumericInput
               value={quan} 
               onChange={prod=>setQuan(prod)} 
               minValue = {1}
@@ -209,7 +209,6 @@ const styles = StyleSheet.create({
         color: '#94989f',
         width: widthscreen-20,
     },
-
     prodImage: {
       height:350,
       width:350,
