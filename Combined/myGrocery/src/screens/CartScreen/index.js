@@ -126,6 +126,7 @@ export default class Cart extends React.Component {
 	check_subtotal(){
 		if (this.subtotalPrice().toFixed(2) > 0){
 			this._save()
+			this.check_out_deleteHandlerAll(this.state.deleteAll)
 		}else{
 			Alert.alert("Please select item to checkout and place order.");
 		}
@@ -327,7 +328,7 @@ export default class Cart extends React.Component {
 
 							<CheckButton center={widthscreen/100}
 								label={"Checkout and place order"}
-								onPress={() => {this.check_subtotal();this.check_out_deleteHandlerAll(deleteAll);}}
+								onPress={() => {this.check_subtotal();}}
 								bcolor="#24CE85"
 								tcolor={COLORS.white}
 								icolor={COLORS.white}
