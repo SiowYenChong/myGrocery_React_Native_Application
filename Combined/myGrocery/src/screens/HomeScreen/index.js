@@ -21,7 +21,7 @@ const Home = ({ navigation }) => {
             flexDirection: 'row',
             marginTop: 30,
             alignItems: 'center',
-            marginBottom: 10,
+            marginBottom: -30,
           }}>
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
             <Image
@@ -31,12 +31,12 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
           <Text style={styles.title}>myGrocery</Text>
         </View>
-        <TextInput
+        {/* <TextInput
           style={styles.input}
           placeholder="Search"
           placeholderTextColor="black"
           textAlign="left"
-        />
+        /> */}
       </View>
       <View>
         <Text
