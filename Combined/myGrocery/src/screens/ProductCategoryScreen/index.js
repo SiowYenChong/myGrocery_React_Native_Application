@@ -26,8 +26,6 @@ export default class App extends Component<Props> {
       prodData: [],
       prodSearch:null,
       isFetching: false,
-      prodname:'',
-      prodpic:'',
     };
     this._load = this._load.bind(this);
   }
@@ -45,12 +43,7 @@ export default class App extends Component<Props> {
         return response.json();
       })
       .then(prodData => {
-        console.log(prodData);
-        console.log(prodData[0].product_name)
-        console.log(prodData[0].pic_url)
         this.setState({prodData: prodData});
-        this.setState({prodname: prodData[0].product_name});
-        this.setState({prodpic: prodData[0].pic_url});
       })
       .catch(error => {
         console.log(error);

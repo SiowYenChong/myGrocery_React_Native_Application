@@ -59,8 +59,6 @@ export default class App extends Component<Props> {
         return response.json();
       })
       .then(orders => {
-        console.log(orders);
-        console.log(orders[0].total_price);
         this.setState({orders: orders});
       })
       .catch(error => {

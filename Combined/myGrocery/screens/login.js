@@ -15,8 +15,6 @@ export default class Login extends Component {
 
 
 login(){
-
-
   return fetch("http://10.0.2.2:5000/api/user", {
   method:'GET', 
   headers:{
@@ -32,15 +30,12 @@ login(){
     if(data[i].email ===this.state.email && data[i].password === this.state.password){
       global.userid = data[i].id;
       global.fullname = data[i].fullname;
-      global.address = data[i].address;
-      global.refresh  = false;
       global.cart= []
       global.cartQuan=[]
       this.props.navigation.navigate("HomeScreen")
       found = true;
       break;
-    }
-    
+    } 
   }
   if(found==false){
     Alert.alert("User does not exist. Please try again or register an account.");

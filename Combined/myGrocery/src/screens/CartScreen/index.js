@@ -133,7 +133,6 @@ export default class Cart extends React.Component {
 	}
 
 	_save() {
-		console.log("The id is "+global.userid)
 		let url = config.settings.serverPath + '/api/orders_insert';
 	
 		fetch(url, {
@@ -151,7 +150,6 @@ export default class Cart extends React.Component {
 		  }),
 		})
 		  .then(response => {
-			console.log(response);
 			if (!response.ok) {
 			  Alert.alert('Error:', response.status.toString());
 			  throw Error('Error ' + response.status);

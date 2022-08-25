@@ -5,12 +5,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 const Home = ({ navigation }) => {
-  const [value, setValue] = React.useState('left');
-  const [first, setFirst] = React.useState('');
-  const [second, setSecond] = React.useState('');
-  const [third, setThird] = React.useState('');
-  const [fourth, setFourth] = React.useState('');
-  const [fifth, setFifth] = React.useState('');
+
 
   return (
     <ScrollView>
