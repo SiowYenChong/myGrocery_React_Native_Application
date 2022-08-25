@@ -253,7 +253,7 @@ export default class SignUp extends Component {
 
 const styles = StyleSheet.create({
   alertStyle: {
-    color: 'green',
+    color: 'red',
    marginBottom: 10,
   },
   Input: {

@@ -138,7 +138,6 @@ export default class EditPassword extends Component {
     });
 
     return (
-      
       <View style={styles.container}>
         <View style = {{flex: 1}}>
         <Text style={styles.textStyle}>Current Password</Text> 
@@ -157,7 +156,7 @@ export default class EditPassword extends Component {
               <View style={styles.inputView}>
               <TextInput secureTextEntry= {true} style={styles.TextInput}
               onChangeText={(text) => this.setState({confirmPassword: text}, this.checkPassword)}/>
-              <TextInput style={{color: 'red'}} value ={this.state.checkPassText} editable= {false}></TextInput>
+              <TextInput style={{color: 'red'}} value ={this.state.checkPassText} editable= {true}></TextInput>
           </View>
 
         <TouchableOpacity style={styles.loginBtn}
