@@ -4,8 +4,6 @@ import {
   View,
   TextInput,
   StyleSheet,
-  ScrollView,
-  Image,
   TouchableOpacity,
   Alert,
 } from 'react-native';
@@ -84,7 +82,7 @@ export default class EditPassword extends Component {
       .then(respondJson => {
         if (respondJson.affected > 0) {
           Alert.alert('Password updated!')
-          // Alert.alert('Record UPDATED for', this.state.name);
+    
           this.props.navigation.goBack()
         } else {
           Alert.alert('Error in UPDATING');
@@ -96,7 +94,6 @@ export default class EditPassword extends Component {
       });
   
   
-    // this.props.navigation.goBack()
   }
   
 

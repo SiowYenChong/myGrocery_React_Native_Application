@@ -1,13 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {  TouchableOpacity , FlatList, Modal,Image} from 'react-native';
+import React, {useState} from 'react';
 import { Text, View, Alert, StyleSheet,Dimensions, TextInput, ScrollView} from 'react-native';
-import {CheckButton, FeeDisplay} from './components/Custom_Pay';
+import {CheckButton} from './components/Custom_Pay';
 import ProductImg from './components/Custom_Product';
  import NumericInput from 'react-native-numeric-input';
-import { Icon } from 'react-native-vector-icons/AntDesign';
-// import { green100 } from 'react-native-paper/lib/typescript/styles/colors';
-// import GlobalStyle  from '../components/GlobalStyle';
-// import { createBottomTabNavigator } from 
+
 
 const widthscreen = Dimensions.get('screen').width;
 const itemspace = 10;
@@ -20,7 +16,6 @@ const Product = ({route,navigation}) => {
 
   function loadCart(id){
     
-   //const cartObj = {id,quan}
    Aitem['qty'] = quan;
     if(global.cart.length==0){
            
@@ -69,7 +64,7 @@ const Product = ({route,navigation}) => {
             paddingTop: 40,
             fontWeight: 'bold',
             marginLeft: -340,
-            marginTop: -30,
+            marginTop: -40,
             color: 'black'
           }}
           onPress={() => navigation.goBack()}>
@@ -123,25 +118,7 @@ const Product = ({route,navigation}) => {
               iconStyle={{ color: 'white' }} 
               rightButtonBackgroundColor='green' 
               leftButtonBackgroundColor='green'/>
-      
-      /* <NumericInput 
-            value={quan} 
-            onChange={prod=>setQuan(prod)} 
-            minValue = {1}
-            initValue = {quan}
-            type='up-down'
-
-            totalWidth={240} 
-            totalHeight={50} 
-            iconSize={25}
-            step={1.5}
-            valueType='integer'
-            textColor='#B0228C' 
-            iconStyle={{ color: 'white' }} 
-            upDownButtonsBackgroundColor = 'green'
-            rightButtonBackgroundColor='#EA3788' 
-            leftButtonBackgroundColor='#E56B70'
-      /> */}
+    }
 
       </View>
       

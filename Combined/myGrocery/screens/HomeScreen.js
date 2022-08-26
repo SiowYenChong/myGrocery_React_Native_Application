@@ -1,12 +1,11 @@
 import React from 'react';
 import Dashboard from '../src/screens/Dashboard';
-import Search from '../src/screens/SearchScreen';
 import Home from '../src/screens/HomeScreen';
 import About from '../src/screens/AboutScreen';
 import OrderHistory from '../src/screens/OrderHistoryScreen';
 import Product_category from '../src/screens/ProductCategoryScreen';
 import IndividualProductScreen from '../src/screens/IndividualProductScreen';
-import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
+import { getFocusedRouteNameFromRoute} from '@react-navigation/native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -44,7 +43,6 @@ const CatalogueScreens = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="About" component={About} />
-      <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="OrderHistory" component={OrderHistory} />
       <Stack.Screen name="Product_category" component={Product_category} />
       <Stack.Screen name="IndividualProductScreen" component={IndividualProductScreen} />

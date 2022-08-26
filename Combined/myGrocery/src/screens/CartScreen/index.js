@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Button, Text, View,Dimensions, TouchableOpacity, ScrollView, Image, ActivityIndicator, TextInput, Alert } from 'react-native';
-import { MaterialIcons, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
-import {CheckButton, FeeDisplay} from './components/Custom_Pay';
+import { StyleSheet, Text, View,Dimensions, TouchableOpacity, ScrollView, Image, ActivityIndicator, Alert } from 'react-native';
+import {CheckButton} from './components/Custom_Pay';
 import COLORS from './consts/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';

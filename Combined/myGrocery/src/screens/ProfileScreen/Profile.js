@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Text, View, StyleSheet, ScrollView, Image, Dimensions,Alert,} from 'react-native';
+import {Text, View, StyleSheet, Image, Dimensions,Alert,} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 let config = require('./Config');
@@ -99,11 +99,7 @@ _delete() {
               }}>
             <Text style={styles.BtnText}>Edit My Profile</Text>
           </TouchableOpacity>
-          {/* <TouchableOpacity style={styles.Btn} onPress={() => {
-                this.props.navigation.navigate('OrderHistory')
-              }}>
-            <Text style={styles.BtnText}>Order History</Text>
-          </TouchableOpacity> */}
+   
           <TouchableOpacity style={styles.Btn} onPress={() => {
                 this.props.navigation.navigate('EditPassword')
               }}>

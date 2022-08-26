@@ -2,7 +2,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
-import navigation from '@react-navigation/native';
 
 const Dashboard = ({ navigation }) => {
   return (

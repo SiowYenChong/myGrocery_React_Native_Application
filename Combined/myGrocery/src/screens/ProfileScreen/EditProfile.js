@@ -129,7 +129,6 @@ submit(){
       .then(respondJson => {
         if (respondJson.affected > 0) {
           Alert.alert('Profile updated!')
-          // Alert.alert('Record UPDATED for', this.state.name);
         } else {
           Alert.alert('Error in UPDATING');
         }
@@ -139,8 +138,7 @@ submit(){
         console.log(error);
       });
   
-  
-    // this.props.navigation.goBack()
+ S
   }
 
   checkSubmit(){

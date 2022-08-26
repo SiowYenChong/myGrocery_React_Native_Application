@@ -4,7 +4,6 @@ db = sqlite3.connect('myGrocerydb.sqlite')
 db.execute('DROP TABLE IF EXISTS user')
 db.execute('DROP TABLE IF EXISTS product')
 db.execute('DROP TABLE IF EXISTS orders')
-db.execute('DROP TABLE IF EXISTS order_item')
 
 db.execute('''CREATE TABLE user(
     id integer PRIMARY KEY,
@@ -33,13 +32,6 @@ db.execute('''CREATE TABLE orders(
     paid_status text NOT NULL,
     order_status TEXT NOT NULL,
     date integer NOT NULL
-)''')
-
-db.execute('''CREATE TABLE order_item(
-    id integer PRIMARY KEY,
-    order_id integer NOT NULL,
-    product_id integer NOT NULL,
-    quantity integer NOT NULL
 )''')
 
 cursor = db.cursor()
@@ -132,7 +124,7 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO product(product_name,description,category,type,price,pic_url)
-    VALUES('CUTIE 2-Ply Compact Toilet Roll Tissue','100% brand new 2-layer tissue rolls. Thicker, stronger, and more value. Ideal bathroom, toilet, changing room and etc. Easy and convenient to use. Good quality product • Value for money. Specification: Package Includes: 10 x CUTIE 3-Ply Compact Toilet Roll Tissue','Household','Cleaning Supplies',14.90,
+    VALUES('Compact Toilet Roll Tissue','100% brand new 2-layer tissue rolls. Thicker, stronger, and more value. Ideal bathroom, toilet, changing room and etc. Easy and convenient to use. Good quality product • Value for money. Specification: Package Includes: 10 x CUTIE 3-Ply Compact Toilet Roll Tissue','Household','Cleaning Supplies',14.90,
     'https://cf.shopee.com.my/file/e0326ef23b2f2d6130d440f21366f7c2')
 ''')
 
@@ -150,67 +142,27 @@ cursor.execute('''
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('1','23.75','Paid','Shipped','1508688000000')
+    VALUES('1','23.75','Paid','Shipped','1385481600000')
 ''')
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('2','27.25','Paid','Shipped','1495468800000')
+    VALUES('2','27.25','Paid','Shipped','1460908800000')
 ''')
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('3','34.50','Paid','Shipped','1385481600000')
+    VALUES('3','34.50','Paid','Shipped','1495468800000')
 ''')
 
 cursor.execute('''
     INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
-    VALUES('4','43.25','Paid','Shipped','1460908800000')
+    VALUES('4','43.25','Paid','Shipped','1508688000000 ')
 ''')
 
 cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,quantity)
-    VALUES('1','1','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,quantity)
-    VALUES('1','2','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,quantity)
-    VALUES('2','1','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,quantity)
-    VALUES('2','3','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,quantity)
-    VALUES('3','2','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,'quantity')
-    VALUES('3','3',1)
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,'quantity')
-    VALUES('4','1','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id, 'quantity')
-    VALUES('4','2','1')
-''')
-
-cursor.execute('''
-    INSERT INTO order_item(order_id,product_id,'quantity')
-    VALUES('4','3','1')
+    INSERT INTO orders(user_id,total_price,paid_status,order_status,date)
+    VALUES('1','23.75','Paid','Shipped','1518688000000')
 ''')
 
 db.commit()

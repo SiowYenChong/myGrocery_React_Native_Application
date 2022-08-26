@@ -1,8 +1,5 @@
 import React, { Component} from "react";
 import {StyleSheet} from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import Profile from "./Profile";
 import EditProfile from "./EditProfile"
 import EditPassword from "./EditPassword"

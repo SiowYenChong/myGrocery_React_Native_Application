@@ -1,6 +1,5 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { ScrollView, TextInput } from 'react-native';
+import { ScrollView } from 'react-native';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
@@ -26,12 +25,6 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
           <Text style={styles.title}>myGrocery</Text>
         </View>
-        {/* <TextInput
-          style={styles.input}
-          placeholder="Search"
-          placeholderTextColor="black"
-          textAlign="left"
-        /> */}
       </View>
       <View>
         <Text

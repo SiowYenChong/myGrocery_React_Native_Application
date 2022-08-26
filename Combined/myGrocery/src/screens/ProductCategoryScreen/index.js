@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react';
+import React, {Component} from 'react';
 import {
   Text,
   View,
@@ -9,14 +9,10 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import COLORS from './consts/colors';
-import { SearchBar } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 const width = Dimensions.get('window').width / 2 - 35;
 let config = require('./Config');
-const img1 = require('./assets/ProductImg/product1.jpg');
-
 
 
 export default class App extends Component<Props> {
@@ -80,10 +76,10 @@ export default class App extends Component<Props> {
           style={{
             fontSize: 15,
             backgroundColor: '#24ce85',
-            paddingTop: 0,
+            paddingTop: 40,
             fontWeight: 'bold',
-            marginLeft: -330,
-            marginTop: -30,
+            marginLeft: -340,
+            marginTop: -40,
             color: 'black'
           }}
           onPress={() => this.props.navigation.goBack()}>

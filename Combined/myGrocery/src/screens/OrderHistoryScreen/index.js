@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react';
+import React, {Component} from 'react';
 import {
   Text,
   View,
@@ -6,19 +6,10 @@ import {
   FlatList,
   Dimensions,
   ScrollView,
-  Image,
   TouchableOpacity,
-  TouchableNativeFeedback,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import COLORS from './consts/colors';
-import { SearchBar } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-const width = Dimensions.get('window').width / 2 - 35;
 let config = require('./Config');
-const img1 = require('./assets/ProductImg/product1.jpg');
-import {createStackNavigator} from '@react-navigation/stack';
-const Stack = createStackNavigator();
 
 Date.prototype.formatted = function() {
 	let day = this.getDay();

@@ -2,15 +2,10 @@ import React, {Component} from 'react';
 import {
   Text,
   View,
-  TextInput,
   StyleSheet,
-  ScrollView,
-  Image,
   TouchableOpacity,
 } from 'react-native';
-// import {Dropdown } from 'react-native-material-dropdown'
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+
 
 export default class ContactUs extends Component {
   render() {

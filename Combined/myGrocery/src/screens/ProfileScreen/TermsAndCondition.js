@@ -5,7 +5,6 @@ import {
   StyleSheet,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-// import {Dropdown } from 'react-native-material-dropdown'
 
 export default class TermsAndCondition extends Component {
   render() {
